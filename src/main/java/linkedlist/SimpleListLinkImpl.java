@@ -10,7 +10,10 @@ public class SimpleListLinkImpl<E> implements LinkedList<E> {
         Node<E> node = new Node<>(val);
         node.next = this.firstNode;
         node.previous = null;
+
+        if (node.next != null) node.next.previous = node;
         this.firstNode = node;
+
         this.size++;
     }
 
@@ -19,7 +22,7 @@ public class SimpleListLinkImpl<E> implements LinkedList<E> {
         if (isEmpty()) return null;
         E result = this.firstNode.val;
         this.firstNode = firstNode.next;
-        this.firstNode.previous = null;
+        if (this.firstNode != null) this.firstNode.previous = null;
         this.size--;
         return result;
     }
