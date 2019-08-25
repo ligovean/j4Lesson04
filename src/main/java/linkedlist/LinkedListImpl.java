@@ -1,6 +1,6 @@
 package linkedlist;
 
-import iterator.LIterator;
+import iterator.ListIterator;
 
 import java.util.Iterator;
 
@@ -121,10 +121,7 @@ public class LinkedListImpl<E> implements LinkedList<E> {
         return result + "}";
     }
 
-    @Override
-    public Node<E> getFirst() {
-        return firstElement;
-    }
+
 
     @Override
     public E getFirstValue() {
@@ -146,13 +143,15 @@ public class LinkedListImpl<E> implements LinkedList<E> {
         return new LinkedListIterator<E>(this);
     }
 
-    private static class LinkedListIterator<E> implements LIterator<E>{
 
-        private LinkedListImpl<E> list;
+    @SuppressWarnings("unchecked")
+    private static class LinkedListIterator<E> implements ListIterator<E> {
+
+        private LinkedListImpl list;
         private Node<E> current;
         private Node<E> previous;
 
-        public LinkedListIterator(LinkedListImpl<E> list) {
+        public LinkedListIterator(LinkedListImpl list) {
             this.list = list;
             reset();
         }

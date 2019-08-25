@@ -12,12 +12,11 @@ public interface LinkedList<E> extends Iterable<E> {
     boolean contains(E val);
     String display();
     E getFirstValue();
-    Node<E> getFirst();
+
 
     class Node<T>{
-        public final T val;
-        public Node<T> next;
-
+        final T val;
+        Node<T> next;
 
         public Node(T val) {
             this.val = val;

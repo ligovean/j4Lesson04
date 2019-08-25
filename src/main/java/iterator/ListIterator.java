@@ -2,7 +2,7 @@ package iterator;
 
 import java.util.Iterator;
 
-public interface LIterator<E> extends Iterator<E> {
+public interface ListIterator<E> extends Iterator<E> {
 
     void reset();
 
