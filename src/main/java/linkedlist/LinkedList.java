@@ -1,18 +1,23 @@
 package linkedlist;
 
-public interface LinkedList<E> {
+public interface LinkedList<E> extends Iterable<E> {
 
-    void insertLeft(E val);
-    E removeLeft();
+    void insertFirst(E value);
+    void insertLast(E value);
+
+    E removeFirst();
+    E removeLast();
+
     boolean remove(E val);
     boolean contains(E val);
     String display();
-    E getFirst();
+    E getFirstValue();
+    Node<E> getFirst();
 
     class Node<T>{
-        final T val;
-        Node<T> next;
-        Node<T> previous;
+        public final T val;
+        public Node<T> next;
+
 
         public Node(T val) {
             this.val = val;
